@@ -61,22 +61,22 @@ step "3/7: Configuration"
 if [[ ! -f .env ]]; then
     info "Creating .env file..."
     cp .env.example .env
-    
+
     echo ""
     echo "Set PBS admin password (user: admin, realm: pbs):"
     read -s -p "Password: " PBS_PASSWORD
     echo ""
     read -s -p "Confirm: " PBS_PASSWORD_CONFIRM
     echo ""
-    
+
     if [[ "$PBS_PASSWORD" != "$PBS_PASSWORD_CONFIRM" ]]; then
         fail "Passwords do not match"
     fi
-    
+
     if [[ -z "$PBS_PASSWORD" ]]; then
         fail "Password cannot be empty"
     fi
-    
+
     # Update .env
     sed -i "s/^PBS_PASSWORD=.*/PBS_PASSWORD=${PBS_PASSWORD}/" .env
     ok "Configuration saved to .env"
