@@ -1,0 +1,17 @@
+services:
+  proxmox-backup-server:
+    container_name: proxmox-backup-server
+    image: proxmoxbackupserver/proxmox-backup-server:latest
+    restart: unless-stopped
+    hostname: pbs
+    privileged: true
+    network_mode: host
+    volumes:
+      - /volume1/docker/pbs/etc:/etc/proxmox-backup
+      - /volume1/docker/pbs/lib:/var/lib/proxmox-backup
+      - /volume1/backups/proxmox:/mnt/datastore
+    environment:
+      - PBS_PASSWORD=${PBS_PASSWORD:-changeme}
+      - PBS_EMAIL=admin@pbs.local
+    ports:
+      - "8007:8007"

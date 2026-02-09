@@ -1,0 +1,5 @@
+# Environment files with credentials
+.env
+
+# Backups (if running backup.sh locally)
+backups/
