@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 NAS_HOST="${NAS_HOST:-192.168.2.129}"
@@ -16,11 +16,11 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 step() {
-    echo -e "${GREEN}==>${NC} $1"
+    echo -e "${GREEN}==>${NC} $*"
 }
 
 info() {
-    echo -e "${YELLOW}→${NC} $1"
+    echo -e "${YELLOW}→${NC} $*"
 }
 
 fail() {

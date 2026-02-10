@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 NAS_HOST="${NAS_HOST:-192.168.2.129}"
